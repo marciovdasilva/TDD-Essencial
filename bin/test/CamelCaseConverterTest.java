@@ -30,11 +30,9 @@ public class CamelCaseConverterTest {
 		
 	}
 	
-	/*fazer 
-	 para nome composto dois, tres ou quatro nomes
-	 
-	 */
-	
-	
+	@Test
+	public void deveConverterNomeCompostos() throws Exception {
+		assertEquals("Lionel Ronaldo", camelCase.converter("lIOnEl rOnAldo"));
+	}
 	
 }
