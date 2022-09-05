@@ -34,5 +34,9 @@ public class CamelCaseConverterTest {
 	public void deveConverterNomeCompostos() throws Exception {
 		assertEquals("Lionel Ronaldo", camelCase.converter("lIOnEl rOnAldo"));
 	}
-	
+	//Teste do professor Alex Silva 
+	@Test
+	public void deveConverterNomeCompostos2() throws Exception {
+		assertEquals("Alex Augusto Lucas Silva Santos", camelCase.converter("ALEX augusto lucas Silva SANTOS"));
+	}
 }
