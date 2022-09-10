@@ -12,7 +12,13 @@ public class CalculadoraSimples {
 	}
 
 	public int divisao(int dividendo, int divisor) {
-		return dividendo / divisor;			
+		
+		if (divisor == 0) {
+			System.out.println("Não existe divisão por Zero.");
+			return 1;
+		} else {
+			return dividendo / divisor;			
+		}
 
 	}
 	
