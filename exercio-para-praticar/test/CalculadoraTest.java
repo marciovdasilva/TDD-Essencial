@@ -54,14 +54,14 @@ public class CalculadoraTest {
 		assertEquals(total, multiplicacao);
 	}
 	@Test
-	public void divisaoSimplesPorZero() throws Exception {
+	public void divisaoSimples() throws Exception {
 		int dividendo = 10;
-		int divisor = 0;
+		int divisor = 5;
 		int total = dividendo / divisor;
 		
 		int divisao = calculadora.divisao(dividendo, divisor);
 		
-		assertEquals(false, divisao);
+		assertEquals(total, divisao);
 	}
 }
 
