@@ -30,8 +30,17 @@ public class ValidarMediaFinalTest {
 	
 	@Test
 	public void calculaMediaFinalParaAlunoComNotas() throws Exception {
-		assertEquals(5, media.mediaFinal(), 0.0001);
+		assertNotas((int) 0.0, (int) 0.0);
 	}
+
+	private void assertNotas(int nota1, int nota2) {
+		media.informaNota(5.5, 6.5);
+		
+		assertEquals(nota1, media.mediaFinal(), 0.0001);
+		assertEquals(nota2, media.mediaFinal(), 0.0001);
+	}
+	
+	
 
 }
 
