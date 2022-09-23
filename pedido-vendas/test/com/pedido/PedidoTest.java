@@ -14,6 +14,11 @@ public class PedidoTest {
 		pedido = new Pedido();
 	}
 	
+	private void assertResumoPedido(double valorTotal, double desconto) {
+		assertEquals(valorTotal, pedido.valorTotal(), 0.001);
+		assertEquals(desconto, pedido.desconto(), 0.001);
+	}
+	
 	@Test
 	public void deveCriarUmPedido() throws Exception {
 //		Pedido pedido = new Pedido();
@@ -22,7 +27,7 @@ public class PedidoTest {
 	@Test
 	public void devePermitirAdicionarUmItemNoPedido() throws Exception {
 //		Pedido pedido = new Pedido();
-		pedido.adicionarItem("Sabonete", 3.0, 10);
+		pedido.adicionarItem(new itemPedido("Sabonete", 3.0, 10));
 	}
 	
 	@Test
@@ -32,11 +37,14 @@ public class PedidoTest {
 	
 	@Test
 	public void deveCalcularValorTotalEDescontoParaPedidoVazio() throws Exception {
-		assertEquals(0.0, pedido.valorTotal(), 0.001);
-		assertEquals(0.0, pedido.desconto(), 0.001);
+		assertResumoPedido(0.0, 0.0);
 	}
 	
-//	minuto 13:54
+	@Test
+	public void deveCalcularResumoParaUmItemSemDesconto() throws Exception {
+		pedido.adicionarItem(new itemPedido("Sabonete", 5.0, 5));
+		assertResumoPedido(25.0, 0.0);
+	}
 	
 	
 	
