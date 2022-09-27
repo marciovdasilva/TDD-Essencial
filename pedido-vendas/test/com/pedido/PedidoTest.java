@@ -27,7 +27,7 @@ public class PedidoTest {
 	@Test
 	public void devePermitirAdicionarUmItemNoPedido() throws Exception {
 //		Pedido pedido = new Pedido();
-		pedido.adicionarItem(new itemPedido("Sabonete", 3.0, 10));
+		pedido.adicionarItem(new ItemPedido("Sabonete", 3.0, 10));
 	}
 	
 	@Test
@@ -42,10 +42,20 @@ public class PedidoTest {
 	
 	@Test
 	public void deveCalcularResumoParaUmItemSemDesconto() throws Exception {
-		pedido.adicionarItem(new itemPedido("Sabonete", 5.0, 5));
+		pedido.adicionarItem(new ItemPedido("Sabonete", 5.0, 5));
 		assertResumoPedido(25.0, 0.0);
 	}
 	
 	
-	
+	@Test
+	public void deveCaltularresumoParaDoisItensSemDesconto() throws Exception {
+		pedido.adicionarItem(new ItemPedido("Sabonete", 3.0, 3));
+		pedido.adicionarItem(new ItemPedido("Pasta dental", 7.0, 3));
+		
+		assertResumoPedido(30.0, 0.0);
+	}
+	@Test
+	public void testName() throws Exception {
+		
+	}
 }

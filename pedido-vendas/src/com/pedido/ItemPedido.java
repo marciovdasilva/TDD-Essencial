@@ -1,11 +1,11 @@
 package com.pedido;
 
-public class itemPedido {
+public class ItemPedido {
 	private String descricao;
 	private double valorUnitario;
 	private int quantidade;
 
-	public itemPedido(String descricao, double valorUnitario, int quantidade) {
+	public ItemPedido(String descricao, double valorUnitario, int quantidade) {
 		this.descricao = descricao;
 		this.valorUnitario = valorUnitario;
 		this.quantidade = quantidade;
