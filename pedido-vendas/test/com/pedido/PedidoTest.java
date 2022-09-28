@@ -15,8 +15,10 @@ public class PedidoTest {
 	}
 	
 	private void assertResumoPedido(double valorTotal, double desconto) {
-		assertEquals(valorTotal, pedido.valorTotal(), 0.001);
-		assertEquals(desconto, pedido.desconto(), 0.001);
+		ResumoPedido resumoPedido = pedido.resumo();
+		
+		assertEquals(valorTotal, resumoPedido.getValorTotal(), 0.001);
+		assertEquals(desconto, resumoPedido.getDesconto(), 0.001);
 	}
 	
 	@Test
@@ -62,7 +64,21 @@ public class PedidoTest {
 		assertResumoPedido(400.0, 16.0);
 	}
 	
-	//16:30 2.3. Um passo de cada vez - baby steps
-
+	@Test
+	public void deveAplicarDescontoSegundaFaixa() throws Exception {
+		pedido.adicionarItem(new ItemPedido("Shampoo", 15.0, 30));
+		pedido.adicionarItem(new ItemPedido("Escova", 15.0, 30));
+		
+		assertResumoPedido(900.0, 54.0);
+	}
+	
+	@Test
+	public void deveAplicarDescontoTerceiraFaixa() throws Exception {
+		pedido.adicionarItem(new ItemPedido("Creme", 15.0, 30));
+		pedido.adicionarItem(new ItemPedido("Óleo", 15.0, 30));
+		pedido.adicionarItem(new ItemPedido("Sabonete", 10.0, 30));
+		
+		assertResumoPedido(1200.0, 96.0);
+	}
 	
 }
