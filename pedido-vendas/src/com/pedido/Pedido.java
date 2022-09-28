@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Pedido {
 	
-	private double valorTotal = 0;
-	private double desconto = 0;
+//	private double valorTotal = 0;
+//	private double desconto = 0;
 	
 	private List<ItemPedido> itens = new ArrayList<>();
 
@@ -19,14 +19,20 @@ public class Pedido {
 //		valorTotal += ItemPedido.getValorUnitario() * ItemPedido.getQuantidade();
 //		return valorTotal;
 		
-		return valorTotal = itens.stream().mapToDouble(i -> i.getValorUnitario() * i.getQuantidade()).sum();
+		return itens.stream().mapToDouble(i -> i.getValorUnitario() * i.getQuantidade()).sum();
 		
 	}
 
 	public double desconto() {
+		double desconto = 0;
+		double valorTotal = valorTotal();
+		
+		if (valorTotal > 300.0) {
+			desconto = valorTotal * 0.04;
+		} 
+		
 		return desconto;
 	}
 	
-//	minuto 12:20 2.3. Um passo de cada vez - baby steps
 
 }

@@ -54,8 +54,15 @@ public class PedidoTest {
 		
 		assertResumoPedido(30.0, 0.0);
 	}
+	
 	@Test
-	public void testName() throws Exception {
+	public void deveAplicarDescontoPrimeiraFaixa() throws Exception {
+		pedido.adicionarItem(new ItemPedido("Creme", 20.0, 20));
 		
+		assertResumoPedido(400.0, 16.0);
 	}
+	
+	//16:30 2.3. Um passo de cada vez - baby steps
+
+	
 }
