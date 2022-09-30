@@ -5,13 +5,25 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.pedido.desconto.CalculadoraDescontoPrimeiraFaixa;
+import com.pedido.desconto.CalculadoraDescontoSegundaFaixa;
+import com.pedido.desconto.CalculadoraDescontoTerceiraFaixa;
+import com.pedido.desconto.CalculadoraFaixaDesconto;
+import com.pedido.desconto.SemDesconto;
+
 public class PedidoTest {
 
 	private Pedido pedido;
 	
 	@Before 
 	public void setup() {
-		pedido = new Pedido();
+		CalculadoraFaixaDesconto calculadoraFaixaDesconto =
+			new CalculadoraDescontoTerceiraFaixa(
+					new CalculadoraDescontoSegundaFaixa(
+							new CalculadoraDescontoPrimeiraFaixa(
+									new SemDesconto(null))));
+		
+		pedido = new Pedido(calculadoraFaixaDesconto);
 	}
 	
 	private void assertResumoPedido(double valorTotal, double desconto) {
