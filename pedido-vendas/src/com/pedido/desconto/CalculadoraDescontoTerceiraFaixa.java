@@ -6,6 +6,7 @@ public class CalculadoraDescontoTerceiraFaixa extends CalculadoraFaixaDesconto {
 		super(proximo);
 	}
 
+
 	@Override
 	protected double calcular(double valorTotal) {
 		if (valorTotal > 1000.0) {
