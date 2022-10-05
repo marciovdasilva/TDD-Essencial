@@ -30,8 +30,10 @@ public class PedidoTest {
 	private void assertResumoPedido(double valorTotal, double desconto) {
 		ResumoPedido resumoPedido = pedido.construir().resumo();
 		
-		assertEquals(valorTotal, resumoPedido.getValorTotal(), 0.001);
-		assertEquals(desconto, resumoPedido.getDesconto(), 0.001);
+//		assertEquals(valorTotal, resumoPedido.getValorTotal(), 0.001);
+//		assertEquals(desconto, resumoPedido.getDesconto(), 0.001);
+		
+		assertEquals(new ResumoPedido(valorTotal, desconto), resumoPedido);
 	}
 	
 	@Test
