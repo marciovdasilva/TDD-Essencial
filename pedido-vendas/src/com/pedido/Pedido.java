@@ -18,10 +18,18 @@ public class Pedido {
 		this.calculadoraFaixaDesconto = calculadoraFaixaDesconto;
 	}
 
+	private void validarQuantidadeItens(ItemPedido itemPedido) {
+		if (itemPedido.getQuantidade() < 0)
+			throw new QuantidadeItensInvalidaException();
+	}
+	
 	public void adicionarItem(ItemPedido itemPedido) {
 //		valorTotal += itemPedido.getValorUnitario() * itemPedido.getQuantidade();
+		validarQuantidadeItens(itemPedido);
+		
 		itens.add(itemPedido);
 	}
+
 
 //	public ResumoPedido resumo() {
 //		double valorTotal = itens.stream().mapToDouble(i -> i.getValorUnitario() * i.getQuantidade()).sum();
