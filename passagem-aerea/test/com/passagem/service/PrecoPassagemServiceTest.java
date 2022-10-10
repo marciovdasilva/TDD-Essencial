@@ -72,6 +72,12 @@ public class PrecoPassagemServiceTest {
 		
 		assertValorPassagem(passageiro, voo, 720.0);
 	}
+	
+	
+	
+	
+	
+	
 }
 
 
